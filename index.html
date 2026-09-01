@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Marketing x Analytics</title>
+<meta name="description" content="A B2B show on marketing analytics. Interviews, attribution, and the work behind the dashboard. Hosted by Alexander Sofronas."/>
+<link rel="canonical" href="https://www.marketingxanalytics.com/"/>
+<meta property="og:title" content="Marketing x Analytics"/>
+<meta property="og:description" content="Interviews with the people who actually run marketing measurement."/>
+<meta property="og:image" content="https://www.marketingxanalytics.com/cover.jpg"/>
+<meta property="og:url" content="https://www.marketingxanalytics.com/"/>
+<link rel="alternate" type="application/rss+xml" title="Marketing x Analytics" href="https://www.marketingxanalytics.com/feed.xml"/>
+<style>
+  :root {
+    --ink: #14151a;
+    --paper: #f6f3ee;
+    --navy: #1b2a4a;
+    --pink: #c2185b;
+    --line: #d8d2c8;
+    --mute: #5c5a56;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--paper); color: var(--ink); }
+  body { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; line-height: 1.45; }
+  a { color: var(--navy); }
+  header, main, footer { width: min(980px, calc(100% - 2.4rem)); margin: 0 auto; }
+  header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 1.4rem 0 1rem; border-bottom: 1px solid var(--line);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  header strong { letter-spacing: .02em; }
+  nav { display: flex; gap: 1.1rem; font-size: .92rem; }
+  nav a { text-decoration: none; color: var(--mute); }
+  nav a:hover { color: var(--ink); }
+  .hero { display: grid; grid-template-columns: 220px 1fr; gap: 2rem; padding: 2.4rem 0 2rem; }
+  .hero img { width: 220px; height: 220px; object-fit: cover; border-radius: 8px; }
+  h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.05; margin: 0 0 .6rem; }
+  .lede { font-size: 1.2rem; max-width: 38rem; margin: 0 0 1.2rem; }
+  .listen { display: flex; flex-wrap: wrap; gap: .5rem; font-family: Arial, Helvetica, sans-serif; }
+  .listen a {
+    display: inline-block; background: var(--navy); color: #fff; text-decoration: none;
+    padding: .55rem .85rem; border-radius: 4px; font-size: .88rem;
+  }
+  .listen a.ghost { background: transparent; color: var(--navy); border: 1px solid var(--navy); }
+  h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; font-family: Arial, Helvetica, sans-serif; }
+  .eps { list-style: none; padding: 0; margin: 0; }
+  .eps li { padding: .85rem 0; border-top: 1px solid var(--line); }
+  .eps small { display: block; color: var(--mute); font-family: Arial, Helvetica, sans-serif; font-size: .8rem; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .card { border: 1px solid var(--line); padding: 1rem 1.1rem; background: #fff; }
+  .card b { display: block; font-size: 1.6rem; font-family: Arial, Helvetica, sans-serif; }
+  .card span { color: var(--mute); font-size: .9rem; }
+  .sponsor {
+    margin: 1.4rem 0 2.4rem; padding: 1.3rem 1.4rem; background: var(--navy); color: #f6f3ee;
+  }
+  .sponsor h2 { margin-top: 0; color: #fff; }
+  .sponsor a { color: #fff; }
+  footer { padding: 1.4rem 0 2.4rem; color: var(--mute); font-size: .9rem; border-top: 1px solid var(--line); }
+  footer a { color: var(--mute); }
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero img { width: 160px; height: 160px; }
+    .grid { grid-template-columns: 1fr; }
+    nav { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <strong>Marketing x Analytics</strong>
+  <nav>
+    <a href="#episodes">Episodes</a>
+    <a href="#audience">Audience</a>
+    <a href="sponsor.html">Sponsor</a>
+    <a href="https://asofronas.com">Alex</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <img src="cover.jpg" alt="Marketing x Analytics cover"/>
+    <div>
+      <h1>The work behind the dashboard.</h1>
+      <p class="lede">Interviews with the people who run attribution, privacy, and measurement for real brands. Hosted by Alexander Sofronas.</p>
+      <div class="listen">
+        <a href="https://podcasts.apple.com/us/podcast/marketing-x-analytics/id1528903990">Apple Podcasts</a>
+        <a href="https://open.spotify.com/show/1uJvKAYGrOm9toYoYiHeQR">Spotify</a>
+        <a class="ghost" href="https://www.youtube.com/playlist?list=PLE_spqnm-afo7LSl_r5K9dCNVIawCFpCD">YouTube</a>
+        <a class="ghost" href="feed.xml">RSS</a>
+      </div>
+    </div>
+  </section>
+
+  <h2 id="episodes">Latest episodes</h2>
+  <ul class="eps">
+    <li>
+      <small>31 Aug 2026</small>
+      <a href="https://mxa.podbean.com/e/the-best-attribution-model-is-the-one-people-understand-with-barbara-galiza/">The Best Attribution Model is the One People Understand, with Barbara Galiza</a>
+    </li>
+    <li>
+      <small>5 Aug 2026</small>
+      <a href="https://mxa.podbean.com/e/the-machine-that-builds-the-machine-ai-agentic-automation-the-future-of-marketing-analytics-with-alexander-buttler/">The Machine That Builds the Machine, with Alexander Buttler</a>
+    </li>
+    <li>
+      <small>27 Jul 2026</small>
+      <a href="https://mxa.podbean.com/e/data-privacy-monetization-and-attribution-with-matthew-kobach/">Data Privacy, Monetization, and Attribution, with Matthew Kobach</a>
+    </li>
+    <li>
+      <small>7 Dec 2025</small>
+      <a href="https://mxa.podbean.com/e/ais-role-in-transforming-marketing-x-b2b-sales-with-mobeen-khan-sponsored-by-searchmaster/">AI's Role in Transforming Marketing x B2B Sales, with Mobeen Khan</a>
+    </li>
+    <li>
+      <small>23 Nov 2025</small>
+      <a href="https://mxa.podbean.com/e/the-power-of-industry-data-x-marketing-analytics-with-charlie-grinnell-sponsored-by-searchmaster/">The Power of Industry Data x Marketing Analytics, with Charlie Grinnell</a>
+    </li>
+  </ul>
+
+  <h2 id="audience">Who listens</h2>
+  <p>Last 30 days, from Podbean. This is what we send sponsors. Age and gender are not in the data. Location, device, app, and time of day are.</p>
+  <div class="grid">
+    <div class="card"><b>280</b><span>unique listeners</span></div>
+    <div class="card"><b>335</b><span>downloads</span></div>
+    <div class="card"><b>71%</b><span>United States</span></div>
+    <div class="card"><b>62%</b><span>iOS</span></div>
+    <div class="card"><b>48%</b><span>Apple Podcasts</span></div>
+    <div class="card"><b>76%</b><span>weekday downloads</span></div>
+  </div>
+
+  <section class="sponsor" id="sponsor">
+    <h2>Sponsorship</h2>
+    <p>Mid-roll on a B2B measurement show. Listeners are on iPhone, mostly in the US, mostly during the work week. If you sell to marketers who care about attribution, this is the room.</p>
+    <p>One-pager and available dates: <a href="mailto:alex@asofronas.com?subject=MxA%20sponsorship">alex@asofronas.com</a>. Full kit: <a href="sponsor.html">sponsor page</a>.</p>
+  </section>
+</main>
+<footer>
+  Marketing x Analytics is the podcast. Services live at <a href="https://asofronas.com">asofronas.com</a>. RSS stays at this domain so Apple and Spotify keep the same feed.
+</footer>
+</body>
+</html>
