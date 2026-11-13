@@ -60,9 +60,11 @@
   .sponsor a { color: #fff; }
   footer { padding: 1.4rem 0 2.4rem; color: var(--mute); font-size: .9rem; border-top: 1px solid var(--line); }
   footer a { color: var(--mute); }
-  .player{margin:1.4rem 0 1rem;padding:1rem;background:#17192c;border:1px solid rgba(255,255,255,.12);border-radius:14px}
-  .player strong{display:block;margin-bottom:.65rem}.player audio{width:100%}
-  .player .podbean{display:inline-block;margin-top:.55rem;font:.85rem Arial,Helvetica,sans-serif;color:rgba(255,255,255,.75)}
+  .player{margin:1.4rem 0 1rem;padding:1rem;background:#17192c;border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden}
+  .player strong{display:block;margin-bottom:.65rem}
+  .player iframe{display:block;width:100%;max-width:660px;height:175px;border:0;border-radius:10px;overflow:hidden}
+  .player .more{display:block;margin-top:.55rem;font:.85rem Arial,Helvetica,sans-serif;color:rgba(255,255,255,.75)}
+  .player .more a{color:rgba(255,255,255,.75)}
   .mx-sec{width:100vw;margin-left:calc(50% - 50vw);padding:4rem 0;background:#f6f3ee;color:#14142a}
   .mx-w{width:min(1120px,calc(100% - 2.4rem));margin:auto}.mx-k{color:var(--pink);font:700 .78rem Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
   .mx-sec h2{font-size:clamp(2rem,5vw,3rem);margin:.5rem 0}.mx-sub{color:#5d5d73;max-width:42rem}
@@ -148,8 +150,8 @@
       </div>
       <div class="player">
         <strong>Latest: All Gas, No Brakes, with Ryan Page</strong>
-        <audio id="latest-audio" controls preload="metadata" src="https://mcdn.podbean.com/mf/web/ckh4w7x0qsln2509/ryan-page-s5-mxa-apple.mp4"></audio>
-        <a class="podbean" href="https://mxa.podbean.com/e/all-gas-no-brakes-with-ryan-page-founder-ceo-backpocket-cpa/" target="_blank" rel="noopener">Listen on Podbean</a>
+        <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.podcasts.apple.com/us/podcast/all-gas-no-brakes-with-ryan-page-founder-ceo-backpocket-cpa/id1528903990?i=1000801027214" loading="lazy" title="All Gas, No Brakes, with Ryan Page, on Apple Podcasts"></iframe>
+        <span class="more">Listen on <a href="https://podcasts.apple.com/us/podcast/all-gas-no-brakes-with-ryan-page-founder-ceo-backpocket-cpa/id1528903990?i=1000801027214" target="_blank" rel="noopener">Apple Podcasts</a> / <a href="https://mxa.podbean.com/e/all-gas-no-brakes-with-ryan-page-founder-ceo-backpocket-cpa/" target="_blank" rel="noopener">Podbean</a></span>
       </div>
     </div>
   </section>
@@ -246,13 +248,6 @@
     if(a.closest('.svc .cta .btn')||(a.classList.contains('btn')&&a.closest('.svc')&&h.includes('calendly')))track('services_cta_click',{destination:'calendly'});
     if(a.closest('.svc .tool')&&h.includes('searchmaster'))track('services_tool_click',{destination:'searchmaster'});
   });
-  var episodeName='All Gas, No Brakes';
-  var audio=document.getElementById('latest-audio'),marks={25:false,50:false,75:false,90:false};if(!audio)return;
-  audio.addEventListener('play',function(){track('podcast_play',{episode_name:episodeName,player_location:'homepage_latest'})});
-  audio.addEventListener('pause',function(){if(!audio.ended)track('podcast_pause',{episode_name:episodeName,audio_current_time:Math.round(audio.currentTime)})});
-  audio.addEventListener('ended',function(){track('podcast_complete',{episode_name:episodeName})});
-  audio.addEventListener('timeupdate',function(){if(!audio.duration)return;var p=Math.floor(audio.currentTime/audio.duration*100);[25,50,75,90].forEach(function(m){if(p>=m&&!marks[m]){marks[m]=true;track('podcast_progress',{episode_name:episodeName,percent_played:m})}})});
-  audio.addEventListener('seeking',function(){track('podcast_seek',{episode_name:episodeName,seek_to_seconds:Math.round(audio.currentTime)})});
 })();
 </script>
 </body>
