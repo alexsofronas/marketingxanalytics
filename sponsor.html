@@ -1,48 +1,353 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sponsor Marketing x Analytics</title>
-<meta name="description" content="Request the Marketing x Analytics sponsor kit and audience data.">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8HEVXSD1M"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-M8HEVXSD1M');</script>
+<meta name="description" content="See the Marketing x Analytics sponsor sheet. Type a work email to open audience data, rates, and open dates.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8HEVXSD1M"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-M8HEVXSD1M');</script>
 <style>
-:root{--ink:#14151a;--paper:#f6f3ee;--navy:#1b2a4a;--pink:#c2185b;--line:#d8d2c8;--mute:#5c5a56}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,serif;line-height:1.45}a{color:var(--navy)}main{width:min(760px,calc(100% - 2.4rem));margin:auto;padding:2rem 0 3rem}h1{font-size:clamp(2rem,6vw,3rem);line-height:1.05;margin:.6rem 0}.lede{font-size:1.1rem}.gate,.kit{margin:1.5rem 0;padding:clamp(1.1rem,4vw,2rem);background:#fff;border:1px solid var(--line)}.eyebrow,.note,.status,label,fieldset,button,select,input,table{font-family:Arial,sans-serif}.eyebrow{color:var(--pink);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}form{display:grid;grid-template-columns:1fr 1fr;gap:1rem}label{display:flex;flex-direction:column;gap:.35rem;font-size:.9rem}.wide,fieldset{grid-column:1/-1}input,select,button{width:100%;min-height:44px;padding:.65rem;border:1px solid #aaa39a;border-radius:3px;background:#fff}fieldset{border:0;padding:0}.radios{display:flex;flex-wrap:wrap;gap:.7rem 1.2rem}.radios label{flex-direction:row;align-items:center}.radios input{width:auto;min-height:0}button{background:var(--navy);color:#fff;border:0;font-weight:700;cursor:pointer}.note,.status{color:var(--mute);font-size:.82rem}.error{color:#a21b1b}[hidden]{display:none!important}.summary{padding:1rem;border-left:4px solid var(--pink);background:#fbf7f9}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:.6rem .2rem;border-bottom:1px solid var(--line)}@media(max-width:620px){form{grid-template-columns:1fr}.wide,fieldset{grid-column:auto}}
+:root{
+  --cream:#f6f3ee;--ink:#14142a;--pink:#e3172b;--navy:#0d0e1c;--line:#d8d2c8;--mute:#5d5d73;--body:#33334a;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Source Serif Pro",Georgia,serif;
+  -webkit-font-smoothing:antialiased;line-height:1.45;
+}
+a{color:var(--ink)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+main{width:min(720px,calc(100% - 2.4rem));margin:0 auto;padding:1.6rem 0 3rem}
+.logo{
+  font:700 .92rem/1 Arial,Helvetica,sans-serif;letter-spacing:.02em;
+  text-decoration:none;color:var(--ink);display:inline-block;margin-bottom:1.6rem;
+}
+h1{
+  font-size:clamp(1.85rem,5.5vw,2.85rem);line-height:1.08;letter-spacing:-.018em;
+  margin:0 0 .85rem;font-weight:700;text-wrap:balance;
+}
+.lede{font-size:clamp(1.05rem,2vw,1.2rem);line-height:1.5;color:var(--body);margin:0 0 1.6rem;max-width:38rem}
+.sheet{
+  position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:1.25rem;box-shadow:0 10px 28px -22px rgba(20,20,42,.35);
+}
+.sheet-head{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:.35rem 1rem;
+  font:700 .82rem/1.3 Arial,Helvetica,sans-serif;color:var(--ink);
+  border-bottom:2px solid var(--ink);padding-bottom:.75rem;margin-bottom:.4rem;
+}
+.sheet-head .when{font-weight:400;color:var(--mute)}
+table{width:100%;border-collapse:collapse;table-layout:fixed;font:0.95rem/1.4 Arial,Helvetica,sans-serif}
+caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+th,td{text-align:left;vertical-align:top;padding:.7rem .2rem;border-bottom:1px solid var(--line)}
+th{font-weight:700;color:var(--ink);padding-right:1rem}
+.c-label{width:38%}
+td{color:var(--body)}
+.sheet .locked{
+  filter:blur(5px);opacity:.55;user-select:none;pointer-events:none;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,transparent 85%);
+          mask-image:linear-gradient(to bottom,#000 0%,transparent 85%);
+  transition:filter .25s,opacity .25s;
+  padding-bottom:3.5rem;
+}
+.sheet.open .locked{
+  filter:none;opacity:1;-webkit-mask-image:none;mask-image:none;
+  user-select:auto;pointer-events:auto;padding-bottom:0;
+}
+.gets td ul{margin:.15rem 0 0;padding-left:1.1rem}
+.gets td li{margin:.25rem 0}
+.gate{
+  position:absolute;left:0;right:0;bottom:1.5rem;width:calc(100% - 2rem);max-width:520px;
+  margin:0 auto;display:flex;gap:.5rem;justify-content:center;
+  padding:.85rem 1rem;align-items:stretch;flex-wrap:wrap;
+  background:#fff;border-radius:10px;box-shadow:0 8px 28px -10px rgba(20,20,42,.28);
+}
+.sheet.open .gate{display:none}
+.hp{
+  position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;
+  opacity:0;pointer-events:none;
+}
+#email{
+  flex:1 1 220px;min-width:0;min-height:44px;padding:.7rem .85rem;
+  border:1px solid #aaa39a;border-radius:6px;background:#fff;color:var(--ink);
+  font:1rem Arial,Helvetica,sans-serif;
+}
+#unlock{
+  flex:0 0 auto;min-height:44px;padding:.7rem 1.15rem;border:0;border-radius:6px;
+  background:var(--navy);color:#fff;font:700 1rem Arial,Helvetica,sans-serif;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+}
+#unlock:disabled{opacity:.45;cursor:not-allowed}
+#unlock .spin{
+  width:.9rem;height:.9rem;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;
+  border-radius:50%;display:none;animation:spin .7s linear infinite;
+}
+#unlock.busy .spin{display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+#gate-msg{
+  flex:1 0 100%;text-align:center;margin:.15rem 0 0;
+  font:.85rem/1.4 Arial,Helvetica,sans-serif;color:#a21b1b;min-height:1.2em;
+}
+#gate-msg:empty{display:none}
+#gate-msg a{color:#a21b1b}
+.after{
+  display:none;margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line);
+  font:1rem/1.5 Arial,Helvetica,sans-serif;
+}
+.sheet.open .after{display:block}
+.after p{margin:.4rem 0}
+.after .thanks{font-weight:700;color:var(--ink)}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;margin:.5rem 0;
+  background:var(--pink);color:#fff;text-decoration:none;
+  font:700 1rem Arial,Helvetica,sans-serif;padding:.85rem 1.2rem;border-radius:6px;
+}
+.btn:hover,.btn:focus-visible{background:#c4111f}
+.foot{
+  margin-top:2rem;font:.9rem/1.5 Arial,Helvetica,sans-serif;color:var(--mute);
+}
+.foot a{color:var(--mute)}
+@media (prefers-reduced-motion:reduce){
+  .sheet .locked{transition:none}
+  #unlock .spin{animation:none}
+}
+@media (max-width:520px){
+  .sheet{padding:1rem}
+  .sheet .locked{padding-bottom:5.5rem}
+  .sheet.open .locked{padding-bottom:0}
+  .gate{flex-direction:column;align-items:stretch;width:calc(100% - 1.5rem)}
+  #email,#unlock{width:100%;flex:none}
+  .c-label{width:42%}
+  th{font-size:.88rem}
+  td{font-size:.88rem}
+}
 </style>
 </head>
-<body><main>
-<p><a href="./">Marketing x Analytics</a></p><p class="eyebrow">Sponsor the show</p>
-<h1>Reach the people behind the dashboard.</h1>
-<p class="lede">A B2B show for practitioners and leaders across measurement, attribution, martech, AI, and growth.</p>
-<section class="gate" id="gate"><h2>Request sponsorship data</h2><p>Tell us about the opportunity to unlock the current audience snapshot. A company or agency email is required.</p>
-<form id="lead" novalidate>
-<label>Name<input name="name" autocomplete="name" required></label>
-<label>Work email<input name="email" type="email" autocomplete="email" placeholder="you@company.com" required><span class="note">Personal email addresses are not accepted.</span></label>
-<label>Company or agency<input name="company" autocomplete="organization" required></label>
-<label>Job role<select name="role" id="role" required><option value="">Select one</option><option>Founder / executive</option><option>Marketing leader</option><option>Brand or content marketer</option><option>Growth or demand generation</option><option>Partnerships or sponsorships</option><option>Media buyer or planner</option><option>Agency</option><option>Other</option></select></label>
-<label class="wide" id="roleOtherWrap" hidden>Other job role<input name="role_other" id="roleOther"></label>
-<label>How did you hear about the show?<select name="referral_source" id="source" required><option value="">Select one</option><option>Referral</option><option>Passionfroot</option><option>Midrolo</option><option>Acast</option><option>Other sponsorship marketplace</option><option>Agency</option><option>Guest or past sponsor</option><option>Event or community</option><option>Search</option><option>LinkedIn or social</option><option>Direct / already a listener</option><option>Other</option></select></label>
-<label id="sourceDetailWrap" hidden>Referral name or source<input name="referral_detail" id="sourceDetail" placeholder="Person, agency, marketplace, or community"></label>
-<label>Current calendar-year sponsorship budget<select name="annual_budget" required><option value="">Select one</option><option value="under-2500">Under $2,500</option><option value="2500-9999">$2,500–$9,999</option><option value="10000-24999">$10,000–$24,999</option><option value="25000-49999">$25,000–$49,999</option><option value="50000-plus">$50,000+</option><option value="unknown">Not set / evaluating</option></select></label>
-<fieldset><legend>Relationship</legend><div class="radios"><label><input type="radio" name="relationship" value="Short-term campaign" required>Short-term</label><label><input type="radio" name="relationship" value="Ongoing relationship">Ongoing</label><label><input type="radio" name="relationship" value="Open to either">Open to either</label></div></fieldset>
-<div class="wide"><button>Unlock sponsorship data</button><p class="status" id="status" role="status"></p></div>
-</form></section>
-<section class="kit" id="kit" hidden><p class="eyebrow">Sponsor snapshot</p><h2>A focused B2B marketing audience</h2><p class="summary" id="fit"></p>
-<h3>Not just a mid-roll</h3>
-<p>A Marketing x Analytics sponsorship wraps your brand around the episode launch—not only the audio placement.</p>
-<ul>
-  <li><strong>Episode title:</strong> “Sponsored by [Your Company]” travels with the episode.</li>
-  <li><strong>Episode description:</strong> brand mention, positioning, and a direct business link.</li>
-  <li><strong>On-air callout:</strong> a host-read promotion near the beginning of the episode, collaboratively scripted to sound like the show.</li>
-  <li><strong>Launch promotion:</strong> sponsor recognition in the posts and social promotion tied to the episode.</li>
-  <li><strong>Cross-platform visibility:</strong> the sponsorship appears wherever the episode and its supporting copy are distributed.</li>
-</ul>
-<p>Last 30 days from Podbean. Podbean does not publish age or gender.</p>
-<table><tr><th>Slice</th><th>Share</th></tr><tr><td>Unique listeners</td><td>280</td></tr><tr><td>Downloads</td><td>335</td></tr><tr><td>United States</td><td>71%</td></tr><tr><td>iOS</td><td>62%</td></tr><tr><td>Mobile</td><td>71%</td></tr><tr><td>Apple Podcasts</td><td>48%</td></tr><tr><td>Spotify</td><td>15%</td></tr><tr><td>Weekday downloads</td><td>76%</td></tr></table>
-<p>Peak request hour is 14:00 GMT. Evening 16:00–21:00 GMT is the strongest block.</p>
-<p><strong>Next step:</strong> email <a href="mailto:alex@asofronas.com?subject=MxA%20sponsorship">alex@asofronas.com</a> for dates and a tailored package.</p></section>
+<body>
+<main>
+  <a class="logo" href="./">Marketing x Analytics</a>
+  <h1>Put your brand in front of people who measure marketing for a living.</h1>
+  <p class="lede">Here's the sheet I send sponsors. Type your work email and the rest of it opens up.</p>
+
+  <div class="sheet" id="sheet">
+    <div class="sheet-head">
+      <span>Marketing x Analytics sponsor sheet</span>
+      <span class="when">Updated November 13, 2026</span>
+    </div>
+    <table aria-label="Marketing x Analytics sponsor sheet">
+      <caption>Marketing x Analytics sponsor sheet</caption>
+      <colgroup><col class="c-label"><col class="c-value"></colgroup>
+      <tbody>
+        <tr><th scope="row">Episodes</th><td>164 public since Aug 2020, about 110 hours</td></tr>
+        <tr><th scope="row">Guests</th><td>About 150, from IBM, Salesforce, Snowflake, AT&amp;T, Gartner, Circana, Northbeam, Ogilvy and more</td></tr>
+        <tr><th scope="row">Apple Podcasts</th><td>5.0 from 43 ratings</td></tr>
+        <tr><th scope="row">Past sponsor</th><td>Adverity, 22 episodes</td></tr>
+        <tr><th scope="row">Now</th><td>Season 5, newest episode Nov 10, 2026</td></tr>
+        <tr><th scope="row">YouTube</th><td>362 videos, 83,671 views</td></tr>
+      </tbody>
+    </table>
+    <div class="locked" id="locked" aria-hidden="true">
+      <table aria-label="Sponsor sheet, audience and package">
+        <colgroup><col class="c-label"><col class="c-value"></colgroup>
+        <tbody id="locked-rows">
+          <tr><th scope="row">Downloads, last 12 months</th><td>0,000</td></tr>
+          <tr><th scope="row">Unique listeners, last 30 days</th><td>0,000</td></tr>
+          <tr><th scope="row">Listening apps</th><td>Sent after unlock</td></tr>
+          <tr><th scope="row">Countries</th><td>Sent after unlock</td></tr>
+          <tr><th scope="row">Listener job titles and seniority</th><td>Sent after unlock</td></tr>
+          <tr><th scope="row">Newsletter subscribers</th><td>0,000</td></tr>
+          <tr><th scope="row">Rates and open dates</th><td>Sent after unlock</td></tr>
+        </tbody>
+        <tbody class="gets">
+          <tr>
+            <th scope="row">What a sponsor gets</th>
+            <td>
+              <ul>
+                <li>Your company name in the episode title, like "Sponsored by Adverity"</li>
+                <li>A link and a short write-up in the episode description</li>
+                <li>A host read near the start of the episode, written together</li>
+                <li>Your name in the launch posts on LinkedIn and X</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <form class="gate" id="gate" novalidate>
+      <input class="hp" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="email" name="email" id="email" autocomplete="email" inputmode="email" placeholder="you@company.com" aria-label="Work email" required>
+      <button type="submit" id="unlock" disabled><span class="spin" aria-hidden="true"></span>Unlock</button>
+      <p id="gate-msg" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="after" id="after" tabindex="-1">
+      <p class="thanks">Thanks. It's all yours.</p>
+      <div id="after-actions"></div>
+    </div>
+  </div>
+
+  <p class="foot"><a href="./">Back to Marketing x Analytics</a> · <a href="mailto:alex@asofronas.com">alex@asofronas.com</a></p>
 </main>
 <script>
-document.querySelector('#lead').addEventListener('focusin',function(){gtag('event','sponsor_form_start',{site_name:'marketingxanalytics.com',page_path:location.pathname})},{once:true});
-document.querySelector('#lead').addEventListener('submit',function(){gtag('event','sponsor_form_submit',{site_name:'marketingxanalytics.com',page_path:location.pathname})});
-(()=>{const blocked=new Set(['gmail.com','googlemail.com','yahoo.com','ymail.com','hotmail.com','outlook.com','live.com','msn.com','icloud.com','me.com','mac.com','aol.com','proton.me','protonmail.com','pm.me','gmx.com','mail.com','fastmail.com','hey.com','zoho.com']),f=document.querySelector('#lead'),role=document.querySelector('#role'),rw=document.querySelector('#roleOtherWrap'),ro=document.querySelector('#roleOther'),source=document.querySelector('#source'),sw=document.querySelector('#sourceDetailWrap'),sd=document.querySelector('#sourceDetail'),details=new Set(['Referral','Other sponsorship marketplace','Agency','Guest or past sponsor','Event or community','Other']);role.onchange=()=>{rw.hidden=role.value!=='Other';ro.required=!rw.hidden};source.onchange=()=>{sw.hidden=!details.has(source.value);sd.required=!sw.hidden};f.onsubmit=async e=>{e.preventDefault();const status=document.querySelector('#status');status.textContent='';status.className='status';if(!f.reportValidity())return;const d=new FormData(f),domain=String(d.get('email')).toLowerCase().split('@')[1]||'';if(blocked.has(domain)){status.textContent='Please use your company or agency email address.';status.className='status error';return}let score=['10000-24999','25000-49999','50000-plus'].includes(d.get('annual_budget'))?2:d.get('annual_budget')==='2500-9999'?1:0;score+=d.get('relationship')==='Ongoing relationship'?2:d.get('relationship')==='Open to either'?1:0;score+=d.get('referral_source')==='Agency'||['Passionfroot','Midrolo','Acast','Other sponsorship marketplace'].includes(d.get('referral_source'))?1:0;const payload=Object.fromEntries(d.entries());payload.opportunity_tier=score>=4?'Strategic / ongoing':score>=2?'Qualified campaign':'Exploratory';payload._subject='New Marketing x Analytics sponsor lead';status.textContent='Sending your request…';try{const response=await fetch('https://formsubmit.co/ajax/alex@asofronas.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});if(!response.ok)throw new Error('submit failed')}catch(_){status.textContent='We could not send your request. Please email alex@asofronas.com.';status.className='status error';return}document.querySelector('#fit').textContent=score>=4?'Strong fit for a multi-episode partnership. Ask about a tailored ongoing package.':score>=2?'Good fit for a focused campaign. Ask about available episodes and a goal-based package.':'Exploratory fit. Consider starting with a single episode.';document.querySelector('#gate').hidden=true;document.querySelector('#kit').hidden=false;try{localStorage.setItem('mxaSponsorLead',JSON.stringify(payload))}catch(_){}}})();
-</script></body></html>
+(function(){
+  var FREE=new Set(['gmail.com','googlemail.com','yahoo.com','yahoo.co.uk','ymail.com','rocketmail.com',
+    'hotmail.com','hotmail.co.uk','outlook.com','live.com','msn.com','icloud.com','me.com','mac.com','aol.com',
+    'proton.me','protonmail.com','pm.me','gmx.com','gmx.net','mail.com','fastmail.com','hey.com','zoho.com',
+    'yandex.com','yandex.ru','qq.com','163.com','126.com','web.de','comcast.net','att.net','verizon.net',
+    'sbcglobal.net','cox.net','mailinator.com','guerrillamail.com','tempmail.com','10minutemail.com']);
+  function isWorkEmail(v){
+    var m=/^[^\s@]+@([a-z0-9-]+\.)+[a-z]{2,}$/i.exec(v.trim()); if(!m) return false;
+    return !FREE.has(v.trim().toLowerCase().split('@')[1]);
+  }
+  function track(name,params){
+    if(typeof gtag==='function') gtag('event',name,Object.assign({site_name:'marketingxanalytics.com',page_path:location.pathname},params||{}));
+  }
+  function isEmailShape(v){return /^[^\s@]+@([a-z0-9-]+\.)+[a-z]{2,}$/i.test(v.trim())}
+  function rowLabel(row){return String((row&&(row.label||row.name||row.key))||'')}
+  function rowValue(row){return String((row&&(row.value||row.val||row.text))||'')}
+
+  var sheet=document.getElementById('sheet');
+  var lockedWrap=document.getElementById('locked');
+  var locked=document.getElementById('locked-rows');
+  var form=document.getElementById('gate');
+  var email=document.getElementById('email');
+  var btn=document.getElementById('unlock');
+  var msg=document.getElementById('gate-msg');
+  var after=document.getElementById('after');
+  var afterActions=document.getElementById('after-actions');
+  var loadedAt=Date.now();
+  var MSG_PERSONAL='That looks like a personal address. Use the email you have at work.';
+  var MSG_SHAPE='Type a full work email, like you@company.com.';
+  var MSG_BROKE='Something broke. <a href="mailto:alex@asofronas.com">Email alex@asofronas.com</a> and I\'ll send the sheet.';
+
+  function setMsg(html){msg.innerHTML=html||''}
+  function setLockedAria(open){
+    if(open) lockedWrap.removeAttribute('aria-hidden');
+    else lockedWrap.setAttribute('aria-hidden','true');
+  }
+  function buildLockedRows(rows){
+    locked.replaceChildren();
+    (rows||[]).forEach(function(row){
+      var tr=document.createElement('tr');
+      var th=document.createElement('th');
+      th.scope='row';
+      th.textContent=rowLabel(row);
+      var td=document.createElement('td');
+      td.textContent=rowValue(row);
+      tr.appendChild(th);tr.appendChild(td);
+      locked.appendChild(tr);
+    });
+  }
+  function showAfter(pdfUrl){
+    afterActions.replaceChildren();
+    if(typeof pdfUrl==='string'&&pdfUrl.indexOf('https://')===0){
+      var a=document.createElement('a');
+      a.className='btn';a.id='pdf';a.href=pdfUrl;a.target='_blank';a.rel='noopener';
+      a.textContent='Download the PDF';
+      a.addEventListener('click',function(){track('sponsor_pdf_click')});
+      afterActions.appendChild(a);
+      var p=document.createElement('p');
+      p.appendChild(document.createTextNode('or '));
+      var m=document.createElement('a');
+      m.href='mailto:alex@asofronas.com';
+      m.textContent='email alex@asofronas.com';
+      p.appendChild(m);
+      p.appendChild(document.createTextNode(' and I\'ll send open dates.'));
+      afterActions.appendChild(p);
+    }else{
+      var p2=document.createElement('p');
+      var m2=document.createElement('a');
+      m2.href='mailto:alex@asofronas.com';
+      m2.textContent='Email alex@asofronas.com';
+      p2.appendChild(m2);
+      p2.appendChild(document.createTextNode(' and I\'ll send the PDF and open dates.'));
+      afterActions.appendChild(p2);
+    }
+  }
+  function openSheet(rows,pdfUrl,moveFocus){
+    buildLockedRows(rows);
+    showAfter(pdfUrl);
+    sheet.classList.add('open');
+    setLockedAria(true);
+    if(moveFocus) after.focus();
+  }
+
+  email.addEventListener('focus',function(){track('sponsor_form_start')},{once:true});
+  email.addEventListener('input',function(){
+    btn.disabled=!isWorkEmail(email.value);
+    setMsg('');
+  });
+  email.addEventListener('blur',function(){
+    var v=email.value.trim();
+    if(!v) return;
+    if(!isEmailShape(v)){setMsg(MSG_SHAPE);return}
+    if(!isWorkEmail(v)) setMsg(MSG_PERSONAL);
+  });
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=email.value.trim();
+    if(!isEmailShape(v)){setMsg(MSG_SHAPE);return}
+    if(!isWorkEmail(v)){setMsg(MSG_PERSONAL);return}
+
+    var honeypot=form.elements.company_website.value;
+    if(honeypot) return;
+
+    var wait=Math.max(0,1000-(Date.now()-loadedAt));
+    track('sponsor_form_submit');
+    btn.disabled=true;
+    btn.classList.add('busy');
+    btn.setAttribute('aria-busy','true');
+    setMsg('');
+
+    function run(){
+      var ctrl=new AbortController();
+      var timer=setTimeout(function(){ctrl.abort()},10000);
+      var domain=v.toLowerCase().split('@')[1]||'';
+      fetch('https://dmqzmnggiswmocettldx.supabase.co/functions/v1/sponsor-unlock',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email:v,company_website:honeypot}),
+        signal:ctrl.signal
+      }).then(function(res){
+        return res.json().then(function(data){return {res:res,data:data}}).catch(function(){return {res:res,data:null}});
+      }).then(function(out){
+        clearTimeout(timer);
+        var res=out.res,data=out.data||{};
+        if(res.status===422||data.error==='work_email_required'){
+          setMsg(MSG_PERSONAL);
+          track('sponsor_unlock_error',{status:res.status});
+          return;
+        }
+        if(res.status===200&&Array.isArray(data.rows)){
+          try{sessionStorage.setItem('mxaSponsorSheet',JSON.stringify({rows:data.rows,pdf_url:data.pdf_url||null}))}catch(_){}
+          openSheet(data.rows,data.pdf_url||null,true);
+          track('sponsor_unlock',{email_domain:domain});
+          return;
+        }
+        setMsg(MSG_BROKE);
+        track('sponsor_unlock_error',{status:res.status||'network'});
+      }).catch(function(){
+        clearTimeout(timer);
+        setMsg(MSG_BROKE);
+        track('sponsor_unlock_error',{status:'network'});
+      }).finally(function(){
+        btn.classList.remove('busy');
+        btn.removeAttribute('aria-busy');
+        if(!sheet.classList.contains('open')) btn.disabled=!isWorkEmail(email.value);
+      });
+    }
+    if(wait) setTimeout(run,wait); else run();
+  });
+
+  try{
+    var saved=JSON.parse(sessionStorage.getItem('mxaSponsorSheet')||'');
+    if(saved&&Array.isArray(saved.rows)) openSheet(saved.rows,saved.pdf_url||null,false);
+  }catch(_){}
+})();
+</script>
+</body>
+</html>
