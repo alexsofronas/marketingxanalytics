@@ -124,6 +124,8 @@
     .grid { grid-template-columns: 1fr; }
     nav { flex-wrap: wrap; }
   }
+  .libutton{display:flex;flex-direction:column;justify-content:center;padding:7px;text-align:center;outline:none;text-decoration:none !important;color:#ffffff !important;width:200px;height:32px;border-radius:16px;background-color:#0A66C2;font-family:"SF Pro Text",Helvetica,sans-serif;}
+  footer p{margin:0 0 .9rem}
 </style>
 </head>
 <body>
@@ -225,9 +227,9 @@
 <div class="band"><div class="st"><div class="src">DIRECTV</div><div class="num">$20M</div><p>Saved on about $77M a year in media. Agency consolidation plus test and learn cut cost per sale 30%+.</p></div><div class="st"><div class="src">B2B software</div><div class="num">10x</div><p>More incremental customers per dollar from display and PR than paid search. His model found it, and a lift test confirmed it.</p></div><div class="st"><div class="src">IBM</div><div class="num">30%</div><p>More pipeline in the three months after he rebuilt paid search attribution</p></div><div class="st"><div class="src">PostPilot</div><div class="num">1,000+</div><p>Client QBRs from one reporting pipeline he built</p></div></div>
 <div class="sh"><h3>What Alex does</h3></div>
 <ol><li tabindex="0"><span class="n">01</span><h3>Incrementality and geo tests</h3><p>Alex measures what a channel added beyond the sales you'd have made anyway. Every test is sized before launch, so you don't spend months on one too small to read. Without a clean control group, he builds a synthetic one.</p></li><li tabindex="0"><span class="n">02</span><h3>Media mix models, checked by a test</h3><p>He'll model 15+ channels, but the biggest call still gets a live lift test before budget moves. That's how the 10x above was found.</p></li><li tabindex="0"><span class="n">03</span><h3>Attribution audits</h3><p>Before a number goes in front of the CFO, Alex goes back to the source data and re-derives it. Bad holdout or iROAS math gets fixed. At PostPilot he re-checked eight campaign claims.</p></li><li tabindex="0"><span class="n">04</span><h3>Reporting automation</h3><p>Pipelines in SQL and Python that take raw data all the way to a finished slide deck. One of them made the 1,000+ QBRs above.</p></li><li tabindex="0"><span class="n">05</span><h3>Picking an addressable media vendor</h3><p>He tests both vendors against one randomized holdout and writes the rules down before anyone sees a result. If neither beat the holdout, the report says so.</p></li></ol>
-<div class="tool"><b>Free tool</b><span><a href="https://searchmaster.app" target="_blank" rel="noopener">SearchMaster</a> shows how AI search ranks you against competitors.</span></div>
+<div class="tool"><b>Free tool</b><span><a href="https://searchmaster.app?utm_source=marketingxanalytics&amp;utm_medium=referral-internal&amp;utm_campaign=searchmaster-promo&amp;utm_content=cross-link_searchmaster-promo_link-only_20261113_v1&amp;utm_id=mxa-20261113-07&amp;utm_creative_format=link-only" target="_blank" rel="noopener">SearchMaster</a> shows how AI search ranks you against competitors.</span></div>
 <div class="cta"><div><h3>Bring the number you trust least.</h3><p>Thirty minutes with Alex on how he'd test it. Sponsoring the show? Email <a href="mailto:alex@asofronas.com">alex@asofronas.com</a></p></div>
-<a class="btn" href="https://calendly.com/sofro/marketing-analytics-consulting-intro-call" target="_blank" rel="noopener">Book a 30-minute intro call<span>&rarr;</span></a></div>
+<a class="btn" href="https://calendly.com/sofro/marketing-analytics-consulting-intro-call?utm_source=marketingxanalytics&amp;utm_medium=referral-internal&amp;utm_campaign=consulting-intro&amp;utm_content=button_cta-book_link-only_20261113_v1&amp;utm_id=mxa-20261113-08&amp;utm_creative_format=link-only" target="_blank" rel="noopener">Book a 30-minute intro call<span>&rarr;</span></a></div>
 </div></section></div>
 
   <section class="sponsor" id="sponsor">
@@ -235,16 +237,17 @@
   </section>
 </main>
 <footer>
-  Marketing x Analytics is the podcast. The RSS feed is hosted on Podbean. <a href="https://www.linkedin.com/newsletters/marketing-analytics-headlines-7524219888307982336/" target="_blank" rel="noopener" data-track="newsletter_follow">Read the weekly newsletter, Marketing Analytics Headlines</a>.
+  <p>Marketing x Analytics is the podcast. The RSS feed is hosted on Podbean.</p>
+  <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7524219888307982336" target="_blank" rel="noopener">Subscribe on LinkedIn</a>
 </footer>
 <script>
 (function(){
   function track(name,params){if(typeof gtag==='function')gtag('event',name,Object.assign({site_name:'marketingxanalytics.com',page_path:location.pathname},params||{}))}
   document.addEventListener('click',function(e){
     var a=e.target.closest('a');if(!a)return;var h=a.href||'',platform=h.includes('youtube')||h.includes('youtu.be')?'youtube':h.includes('spotify')?'spotify':h.includes('apple.com')?'apple_podcasts':h.includes('linkedin.com')?'linkedin':h.includes('podbean')?'podbean':'other';
+    if(a.classList.contains('libutton')){track('subscribe_click',{platform:'linkedin_newsletter'});return;}
     if(a.closest('.mx-g'))track('select_guest_episode',{guest_name:(a.querySelector('b')||{}).textContent||'',link_url:h});
     if(platform!=='other')track('podcast_platform_click',{platform:platform,link_url:h,link_text:(a.textContent||'').trim().slice(0,100)});
-    if(a.dataset.track==='newsletter_follow')track('newsletter_cta_click',{destination:'linkedin_newsletter'});
     if(a.closest('.svc .cta .btn')||(a.classList.contains('btn')&&a.closest('.svc')&&h.includes('calendly')))track('services_cta_click',{destination:'calendly'});
     if(a.closest('.svc .tool')&&h.includes('searchmaster'))track('services_tool_click',{destination:'searchmaster'});
   });

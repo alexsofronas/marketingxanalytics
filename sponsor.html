@@ -123,6 +123,8 @@ td{color:var(--body)}
   th{font-size:.88rem}
   td{font-size:.88rem}
 }
+.libutton{display:flex;flex-direction:column;justify-content:center;padding:7px;text-align:center;outline:none;text-decoration:none !important;color:#ffffff !important;width:200px;height:32px;border-radius:16px;background-color:#0A66C2;font-family:"SF Pro Text",Helvetica,sans-serif;}
+.foot + .libutton{margin-top:1rem}
 </style>
 </head>
 <body>
@@ -190,6 +192,7 @@ td{color:var(--body)}
   </div>
 
   <p class="foot"><a href="./">Back to Marketing x Analytics</a> · <a href="mailto:alex@asofronas.com">alex@asofronas.com</a></p>
+  <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7524219888307982336" target="_blank" rel="noopener">Subscribe on LinkedIn</a>
 </main>
 <script>
 (function(){
@@ -205,6 +208,10 @@ td{color:var(--body)}
   function track(name,params){
     if(typeof gtag==='function') gtag('event',name,Object.assign({site_name:'marketingxanalytics.com',page_path:location.pathname},params||{}));
   }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a.libutton');
+    if(a) track('subscribe_click',{platform:'linkedin_newsletter'});
+  });
   function isEmailShape(v){return /^[^\s@]+@([a-z0-9-]+\.)+[a-z]{2,}$/i.test(v.trim())}
   function rowLabel(row){return String((row&&(row.label||row.name||row.key))||'')}
   function rowValue(row){return String((row&&(row.value||row.val||row.text))||'')}
