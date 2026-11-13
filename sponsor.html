@@ -129,7 +129,7 @@ td{color:var(--body)}
 <main>
   <a class="logo" href="./">Marketing x Analytics</a>
   <h1>Put your brand in front of people who measure marketing for a living.</h1>
-  <p class="lede">Here's the sheet I send sponsors. Type your work email and the rest of it opens up.</p>
+  <p class="lede">Here's the sheet Alex sends sponsors. Type your work email and the rest of it opens up.</p>
 
   <div class="sheet" id="sheet">
     <div class="sheet-head">
@@ -221,7 +221,7 @@ td{color:var(--body)}
   var loadedAt=Date.now();
   var MSG_PERSONAL='That looks like a personal address. Use the email you have at work.';
   var MSG_SHAPE='Type a full work email, like you@company.com.';
-  var MSG_BROKE='Something broke. <a href="mailto:alex@asofronas.com">Email alex@asofronas.com</a> and I\'ll send the sheet.';
+  var MSG_BROKE='Something broke. <a href="mailto:alex@asofronas.com">Email alex@asofronas.com</a> and Alex will send the sheet.';
 
   function setMsg(html){msg.innerHTML=html||''}
   function setLockedAria(open){
@@ -255,7 +255,7 @@ td{color:var(--body)}
       m.href='mailto:alex@asofronas.com';
       m.textContent='email alex@asofronas.com';
       p.appendChild(m);
-      p.appendChild(document.createTextNode(' and I\'ll send open dates.'));
+      p.appendChild(document.createTextNode(' and Alex will send open dates.'));
       afterActions.appendChild(p);
     }else{
       var p2=document.createElement('p');
@@ -263,7 +263,7 @@ td{color:var(--body)}
       m2.href='mailto:alex@asofronas.com';
       m2.textContent='Email alex@asofronas.com';
       p2.appendChild(m2);
-      p2.appendChild(document.createTextNode(' and I\'ll send the PDF and open dates.'));
+      p2.appendChild(document.createTextNode(' and Alex will send the PDF and open dates.'));
       afterActions.appendChild(p2);
     }
   }
