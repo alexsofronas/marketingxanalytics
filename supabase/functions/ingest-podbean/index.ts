@@ -328,7 +328,7 @@ Deno.serve(async (req) => {
 
       const hasSuccess = Array.isArray(prior) && prior.length > 0;
       if (!hasSuccess || body.mode === "catchup") {
-        windowStart = addDays(yday, -89);
+        windowStart = addDays(yday, -85); // Podbean rejects daily ranges near 90 days
       } else {
         windowStart = addDays(yday, -2);
       }
@@ -374,7 +374,7 @@ Deno.serve(async (req) => {
 
     // Dims: Podbean daily source/country/platform stats only allow a start
     // date within the last 30 days. Cap to the last 30 complete days.
-    const dimFloor = addDays(yday, -29);
+    const dimFloor = addDays(yday, -26); // Podbean's 30-day edge is strict; keep margin
     const dimStart = windowStart > dimFloor ? windowStart : dimFloor;
     const dims: Array<Record<string, unknown>> = [];
     for (const day of eachDate(dimStart, windowEnd)) {
@@ -383,11 +383,17 @@ Deno.serve(async (req) => {
         ["/podcastStats/countries", "country"],
         ["/podcastStats/platforms", "platform"],
       ] as const) {
-        const raw = await podbeanGet(path, accessToken, {
-          start: day,
-          end: day,
-          period: "d",
-        }) as Json;
+        let raw: Json;
+        try {
+          raw = await podbeanGet(path, accessToken, {
+            start: day,
+            end: day,
+            period: "d",
+          }) as Json;
+        } catch (_e) {
+          // A day Podbean refuses (retention edge) is skipped, not fatal.
+          continue;
+        }
         const map = parseNameCountMap(
           raw.stats ?? raw.data ?? raw.sources ?? raw.countries ?? raw.platforms ?? raw,
         );
